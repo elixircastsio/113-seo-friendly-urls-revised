@@ -1,0 +1,26 @@
+<h2><%= @title %></h2>
+
+<%= f = form_for @changeset, "#",
+  id: "movie-form",
+  class: "elixircasts-form",
+  phx_target: @myself,
+  phx_change: "validate",
+  phx_submit: "save" %>
+
+  <%= label f, :title %>
+  <%= text_input f, :title %>
+  <%= error_tag f, :title %>
+  <br>
+
+  <%= label f, :summary %>
+  <%= textarea f, :summary %>
+  <%= error_tag f, :summary %>
+  <br>
+
+  <%= label f, :year %>
+  <%= text_input f, :year %>
+  <%= error_tag f, :year %>
+  <br>
+
+  <%= submit "Save", phx_disable_with: "Saving..." %>
+</form>
